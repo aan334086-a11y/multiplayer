@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Forestbound - Multiplayer Survival</title>
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
+  <body>
+    <canvas id="forest" class="world-canvas" aria-hidden="true"></canvas>
+
+    <section id="main-menu" class="screen">
+      <h1>Forestbound</h1>
+      <p>
+        Survive together in a dense 3D forest. Gather coins over time, keep your warmth up, and
+        communicate with your squad to outlast the night.
+      </p>
+      <div class="menu-grid">
+        <div class="card">
+          <h3>Quick Match</h3>
+          <p>Drop into a public forest with 3 other survivors.</p>
+          <button id="quick-match">Start Match</button>
+        </div>
+        <div class="card">
+          <h3>Private Lobby</h3>
+          <p>Create a new lobby or join a friend using a forest code.</p>
+          <button id="open-lobby" class="secondary">Open Lobby</button>
+        </div>
+        <div class="card">
+          <h3>Loadout</h3>
+          <p>Choose your survival kit before entering the woods.</p>
+          <button id="open-loadout" class="secondary">Customize</button>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Survival Tips</h3>
+        <p class="tip">Stay near campfires to regain warmth and earn bonus coins for teamwork.</p>
+      </div>
+    </section>
+
+    <section id="lobby" class="screen hidden">
+      <h1>Lobby: Emerald Pines</h1>
+      <p>Invite friends or wait for matchmaking. Your squad is ready when all players lock in.</p>
+      <div class="lobby-grid">
+        <div class="card">
+          <h3>Players</h3>
+          <ul id="lobby-players" class="player-list"></ul>
+          <div class="lobby-actions">
+            <button id="lock-in">Lock In</button>
+            <button id="start-game" class="secondary">Start Survival</button>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Forest Settings</h3>
+          <p>Weather: Misty dusk</p>
+          <p>Threats: Wolves, thin ice, night fog</p>
+          <p>Goal: Survive 10 minutes to extract</p>
+        </div>
+        <div class="card">
+          <h3>Chat</h3>
+          <div class="chat">
+            <div id="lobby-chat" class="chat-log" aria-live="polite"></div>
+            <input id="chat-input" type="text" placeholder="Type a message and hit Enter" />
+          </div>
+        </div>
+      </div>
+      <button id="back-to-menu" class="secondary">Back to Menu</button>
+    </section>
+
+    <div id="game-ui" class="hud hidden">
+      <div class="hud-bar">
+        <div class="hud-stat">
+          <strong>Forestbound Survival</strong>
+          <span id="status" class="badge">Daylight</span>
+          <span id="match-code" class="badge">Code: WILD-248</span>
+        </div>
+        <div class="hud-stat">
+          <span class="badge">Survival Time: <span id="time">00:00</span></span>
+          <span class="badge">Coins: <span id="coins">0</span></span>
+          <span class="badge">Warmth: <span id="warmth">100</span>%</span>
+        </div>
+      </div>
+      <div class="panel-stack">
+        <div class="panel">
+          <h4>Squad</h4>
+          <ul id="game-players" class="player-list"></ul>
+        </div>
+        <div class="panel">
+          <h4>Objectives</h4>
+          <p class="tip">Stay within 40m of a campfire to regain warmth.</p>
+          <p class="tip">Stick together for a 10% coin bonus.</p>
+        </div>
+        <button id="end-match" class="danger">End Match</button>
+      </div>
+    </div>
+
+    <script src="./js/app.js"></script>
+  </body>
+</html>
